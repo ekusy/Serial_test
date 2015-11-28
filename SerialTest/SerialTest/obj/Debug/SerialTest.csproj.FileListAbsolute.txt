@@ -1,1 +1,9 @@
 C:\Users\yone\Documents\Asai\googledrive\git\kojin\Serial_test\SerialTest\SerialTest\bin\Debug\SerialTest.exe.config
+C:\Users\yone\Documents\Asai\googledrive\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.csprojResolveAssemblyReference.cache
+C:\Users\yone\Documents\Asai\googledrive\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.Form1.resources
+C:\Users\yone\Documents\Asai\googledrive\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.Properties.Resources.resources
+C:\Users\yone\Documents\Asai\googledrive\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.csproj.GenerateResource.Cache
+C:\Users\yone\Documents\Asai\googledrive\git\kojin\Serial_test\SerialTest\SerialTest\bin\Debug\SerialTest.exe
+C:\Users\yone\Documents\Asai\googledrive\git\kojin\Serial_test\SerialTest\SerialTest\bin\Debug\SerialTest.pdb
+C:\Users\yone\Documents\Asai\googledrive\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.exe
+C:\Users\yone\Documents\Asai\googledrive\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.pdb
