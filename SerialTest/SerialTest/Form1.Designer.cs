@@ -39,6 +39,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.labelConnect = new System.Windows.Forms.Label();
             this.buttonSerialClose = new System.Windows.Forms.Button();
+            this.textBoxButton1 = new System.Windows.Forms.TextBox();
+            this.textBoxButton3 = new System.Windows.Forms.TextBox();
+            this.textBoxButton2 = new System.Windows.Forms.TextBox();
+            this.textBoxButton4 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonPompOn
@@ -55,7 +59,7 @@
             // buttonPompOff
             // 
             this.buttonPompOff.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonPompOff.Location = new System.Drawing.Point(12, 146);
+            this.buttonPompOff.Location = new System.Drawing.Point(12, 160);
             this.buttonPompOff.Name = "buttonPompOff";
             this.buttonPompOff.Size = new System.Drawing.Size(120, 50);
             this.buttonPompOff.TabIndex = 1;
@@ -77,7 +81,7 @@
             // buttonValveOpen
             // 
             this.buttonValveOpen.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonValveOpen.Location = new System.Drawing.Point(152, 146);
+            this.buttonValveOpen.Location = new System.Drawing.Point(152, 160);
             this.buttonValveOpen.Name = "buttonValveOpen";
             this.buttonValveOpen.Size = new System.Drawing.Size(120, 50);
             this.buttonValveOpen.TabIndex = 3;
@@ -89,7 +93,7 @@
             // 
             this.labelPomp.AutoSize = true;
             this.labelPomp.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelPomp.Location = new System.Drawing.Point(28, 221);
+            this.labelPomp.Location = new System.Drawing.Point(28, 251);
             this.labelPomp.Name = "labelPomp";
             this.labelPomp.Size = new System.Drawing.Size(93, 19);
             this.labelPomp.TabIndex = 4;
@@ -100,7 +104,7 @@
             // 
             this.labelValve.AutoSize = true;
             this.labelValve.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelValve.Location = new System.Drawing.Point(148, 221);
+            this.labelValve.Location = new System.Drawing.Point(148, 251);
             this.labelValve.Name = "labelValve";
             this.labelValve.Size = new System.Drawing.Size(117, 19);
             this.labelValve.TabIndex = 5;
@@ -155,11 +159,51 @@
             this.buttonSerialClose.UseVisualStyleBackColor = true;
             this.buttonSerialClose.Click += new System.EventHandler(this.buttonSerialClose_Click);
             // 
+            // textBoxButton1
+            // 
+            this.textBoxButton1.Location = new System.Drawing.Point(15, 133);
+            this.textBoxButton1.Name = "textBoxButton1";
+            this.textBoxButton1.Size = new System.Drawing.Size(100, 19);
+            this.textBoxButton1.TabIndex = 11;
+            this.textBoxButton1.Text = "1";
+            this.textBoxButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxButton3
+            // 
+            this.textBoxButton3.Location = new System.Drawing.Point(152, 135);
+            this.textBoxButton3.Name = "textBoxButton3";
+            this.textBoxButton3.Size = new System.Drawing.Size(100, 19);
+            this.textBoxButton3.TabIndex = 12;
+            this.textBoxButton3.Text = "3";
+            this.textBoxButton3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxButton2
+            // 
+            this.textBoxButton2.Location = new System.Drawing.Point(12, 216);
+            this.textBoxButton2.Name = "textBoxButton2";
+            this.textBoxButton2.Size = new System.Drawing.Size(100, 19);
+            this.textBoxButton2.TabIndex = 13;
+            this.textBoxButton2.Text = "2";
+            this.textBoxButton2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxButton4
+            // 
+            this.textBoxButton4.Location = new System.Drawing.Point(152, 216);
+            this.textBoxButton4.Name = "textBoxButton4";
+            this.textBoxButton4.Size = new System.Drawing.Size(100, 19);
+            this.textBoxButton4.TabIndex = 14;
+            this.textBoxButton4.Text = "4";
+            this.textBoxButton4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(284, 311);
+            this.Controls.Add(this.textBoxButton4);
+            this.Controls.Add(this.textBoxButton2);
+            this.Controls.Add(this.textBoxButton3);
+            this.Controls.Add(this.textBoxButton1);
             this.Controls.Add(this.buttonSerialClose);
             this.Controls.Add(this.labelConnect);
             this.Controls.Add(this.label1);
@@ -173,6 +217,7 @@
             this.Controls.Add(this.buttonPompOn);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,6 +236,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelConnect;
         private System.Windows.Forms.Button buttonSerialClose;
+        private System.Windows.Forms.TextBox textBoxButton1;
+        private System.Windows.Forms.TextBox textBoxButton3;
+        private System.Windows.Forms.TextBox textBoxButton2;
+        private System.Windows.Forms.TextBox textBoxButton4;
     }
 }
 

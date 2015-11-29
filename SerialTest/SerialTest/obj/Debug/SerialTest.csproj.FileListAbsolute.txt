@@ -7,3 +7,10 @@ C:\Users\yone\Documents\Asai\googledrive\git\kojin\Serial_test\SerialTest\Serial
 C:\Users\yone\Documents\Asai\googledrive\git\kojin\Serial_test\SerialTest\SerialTest\bin\Debug\SerialTest.pdb
 C:\Users\yone\Documents\Asai\googledrive\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.exe
 C:\Users\yone\Documents\Asai\googledrive\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.pdb
+E:\GoogleDrive\GoogleDrive\git\kojin\Serial_test\SerialTest\SerialTest\bin\Debug\SerialTest.exe.config
+E:\GoogleDrive\GoogleDrive\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.exe
+E:\GoogleDrive\GoogleDrive\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.pdb
+E:\GoogleDrive\GoogleDrive\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.csprojResolveAssemblyReference.cache
+E:\GoogleDrive\GoogleDrive\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.Form1.resources
+E:\GoogleDrive\GoogleDrive\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.Properties.Resources.resources
+E:\GoogleDrive\GoogleDrive\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.csproj.GenerateResource.Cache

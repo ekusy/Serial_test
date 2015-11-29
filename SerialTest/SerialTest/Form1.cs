@@ -7,15 +7,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace SerialTest
 {
     public partial class Form1 : Form
     {
         serial stream = new serial();
+        tcp server;
+        Thread readTcpThread;
         public Form1()
         {
             InitializeComponent();
+            server = new tcp();
+             readTcpThread= new Thread(
+                            new ThreadStart(readTcp));
+            readTcpThread.Start();
+        }
+
+       
+        
+
+        private void readTcp()
+        {
+            while (true)
+            {
+                Console.WriteLine("readTcp");
+                if (data.flg == true)
+                {
+                    //String msg = data.num + "を送信しました";
+                    //MessageBox.Show(msg);
+                    stream.writeSerial(data.num);
+                    data.flg = false;
+                }
+            }
         }
 
         private void buttonSerialConnect_Click(object sender, EventArgs e)
@@ -33,31 +58,63 @@ namespace SerialTest
 
         private void buttonPompOn_Click(object sender, EventArgs e)
         {
-            stream.writeSerial("1");
-            labelPomp.Text = "Pomp ON";
+            pompOn();
         }
 
         private void buttonPompOff_Click(object sender, EventArgs e)
         {
-            stream.writeSerial("2");
-            labelPomp.Text = "Pomp OFF";
+            pompOff();
         }
 
         private void buttonValveClose_Click(object sender, EventArgs e)
         {
-            stream.writeSerial("3");
-            labelValve.Text = "Valve CLOSE";
+            valveClose();
         }
+
         private void buttonValveOpen_Click(object sender, EventArgs e)
         {
-            stream.writeSerial("4");
-            labelValve.Text = "Valve OPEN";
+            valveOpen();
         }
 
         private void buttonSerialClose_Click(object sender, EventArgs e)
         {
             stream.closeSerial();
             labelConnect.Text = "未接続";
+        }
+
+        private void pompOn()
+        {
+            stream.writeSerial(textBoxButton1.Text);
+            labelPomp.Text = "Pomp ON";
+        }
+
+        private void pompOff()
+        {
+            stream.writeSerial(textBoxButton2.Text);
+            labelPomp.Text = "Pomp OFF";
+        }
+
+        private void valveClose()
+        {
+            stream.writeSerial(textBoxButton3.Text);
+            labelValve.Text = "Valve CLOSE";
+        }
+
+        private void valveOpen()
+        {
+            stream.writeSerial(textBoxButton4.Text);
+            labelValve.Text = "Valve OPEN";
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (readTcpThread != null)
+            {
+                if (readTcpThread.IsAlive)
+                {
+                    readTcpThread.Abort();
+                }
+            }
         }
     }
 }
