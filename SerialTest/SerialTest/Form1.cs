@@ -16,23 +16,20 @@ namespace SerialTest
         serial stream = new serial();
         tcp server;
         Thread readTcpThread;
+        bool readTcpThreadFlg = false;
         public Form1()
         {
             InitializeComponent();
-            server = new tcp();
-             readTcpThread= new Thread(
-                            new ThreadStart(readTcp));
-            readTcpThread.Start();
+            
         }
 
-       
         
 
         private void readTcp()
         {
-            while (true)
+            while (readTcpThreadFlg == true)
             {
-                Console.WriteLine("readTcp");
+                //Console.WriteLine("readTcp");
                 if (data.flg == true)
                 {
                     //String msg = data.num + "を送信しました";
@@ -106,15 +103,19 @@ namespace SerialTest
             labelValve.Text = "Valve OPEN";
         }
 
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            if (readTcpThread != null)
-            {
-                if (readTcpThread.IsAlive)
-                {
-                    readTcpThread.Abort();
-                }
-            }
+            readTcpThreadFlg = true;
+            server = new tcp();
+            readTcpThread = new Thread(
+                           new ThreadStart(readTcp));
+            readTcpThread.Start();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            readTcpThreadFlg = false;
+            server.stopServer();
         }
     }
 }
