@@ -21,7 +21,7 @@ namespace SerialTest
         {
             ip = "127.0.0.1";
             port = 1000;
-            //openTCP(ip, port);
+            openTCP(ip, port);
         }
 
         public void openTCP(String _ip,int _port)
@@ -86,19 +86,23 @@ public class ClientTcpIp
                     // 送信データ作成
                     char[] sdat = new char[ldat];
                     Array.Copy(rdat, sdat, ldat);
-                        //String msg = "receive";
+                        
                         for (int i = 0; i < sdat.Length; i++)
                         {
                             if (sdat[i] >= 48 && sdat[i] <= 57)
                             {
-                                //msg = msg + (sdat[i] - 48);
+                                /*
+                                String msg = "receive";
+                                msg = msg + (sdat[i] - 48);
+                                MessageBox.Show(msg);
+                                */
                                 String num = char.ToString(sdat[i]);
                                 data.num = num;
                                 data.flg = true;
                                 break;
                             }
                         }
-                        //MessageBox.Show(msg);
+                        //
                         /*
                     String msg = "(" + intNo + ")" +
                         System.Text.Encoding.GetEncoding(
