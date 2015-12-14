@@ -38,6 +38,7 @@ namespace SerialTest
                     data.flg = false;
                 }
             }
+            Console.WriteLine("STOP read");
         }
 
         private void buttonSerialConnect_Click(object sender, EventArgs e)
@@ -105,17 +106,22 @@ namespace SerialTest
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            readTcpThreadFlg = true;
+            
             server = new tcp();
+            readTcpThreadFlg = true;
             readTcpThread = new Thread(
                            new ThreadStart(readTcp));
             readTcpThread.Start();
+            
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            
             readTcpThreadFlg = false;
             server.stopServer();
+            //this.Close();
+            //Application.Exit();
         }
     }
 }
