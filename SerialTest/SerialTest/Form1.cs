@@ -120,8 +120,10 @@ namespace SerialTest
             
             readTcpThreadFlg = false;
             server.stopServer();
+            Console.WriteLine("stop");
+            //server = null;
             //this.Close();
-            //Application.Exit();
+            Application.Exit();
         }
     }
 }

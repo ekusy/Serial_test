@@ -17,6 +17,7 @@ namespace SerialTest
         //System.Net.Sockets.TcpClient client;
         ClientTcpIp client;
         public bool serverFlg = false;
+        Thread clientThread;
         public tcp()
         {
             ip = "127.0.0.1";
@@ -56,7 +57,7 @@ namespace SerialTest
                         client.objStm = myTcpClient.GetStream();
                     // クライアントとの送受信開始
                     client.readFlg = true;
-                        Thread clientThread = new Thread(
+                    clientThread = new Thread(
                             new ThreadStart(client.ReadWrite));
                         clientThread.Start();
 
@@ -69,12 +70,14 @@ namespace SerialTest
         public void stopServerThread()
         {
             serverFlg = false;
+
+            
         }
 
         public void stopServer()
         {
             stopServerThread();
-            if(client != null)
+            if (client != null)
                 client.stopReadThread();
         }
     }
@@ -136,6 +139,7 @@ namespace SerialTest
                         // ソケットクローズ
                         objStm.Close();
                         objSck.Close();
+                        Console.WriteLine("return read");
                         return;
                     }
                 }
