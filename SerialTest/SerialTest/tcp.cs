@@ -49,7 +49,7 @@ namespace SerialTest
                 {
                     Console.WriteLine("ServerThread");
                     // ソケット接続待ち
-                    if (listener.Pending())
+                    if (listener.Pending()) //接続待ちがあれば
                     {
                         TcpClient myTcpClient = listener.AcceptTcpClient();
                         // クライアントから接続有り
@@ -128,7 +128,7 @@ namespace SerialTest
             {
                 while (readFlg == true)
                 {
-                    if (objSck.Available > 0)
+                    if (objSck.Available > 0)   //データを受信していれば
                     {
                         Console.WriteLine("ReadWrite");
                         // ソケット受信
