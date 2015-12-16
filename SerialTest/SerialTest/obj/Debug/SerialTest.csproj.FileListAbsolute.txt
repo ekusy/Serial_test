@@ -23,3 +23,12 @@ C:\Users\ptx01\Google ドライブ\git\kojin\Serial_test\SerialTest\SerialTest\o
 C:\Users\ptx01\Google ドライブ\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.Form1.resources
 C:\Users\ptx01\Google ドライブ\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.Properties.Resources.resources
 C:\Users\ptx01\Google ドライブ\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.csproj.GenerateResource.Cache
+C:\Users\ptx01\GoogleDrive\git\kojin\Serial_test\SerialTest\SerialTest\bin\Debug\SerialTest.exe.config
+C:\Users\ptx01\GoogleDrive\git\kojin\Serial_test\SerialTest\SerialTest\bin\Debug\SerialTest.exe
+C:\Users\ptx01\GoogleDrive\git\kojin\Serial_test\SerialTest\SerialTest\bin\Debug\SerialTest.pdb
+C:\Users\ptx01\GoogleDrive\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.csprojResolveAssemblyReference.cache
+C:\Users\ptx01\GoogleDrive\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.Form1.resources
+C:\Users\ptx01\GoogleDrive\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.Properties.Resources.resources
+C:\Users\ptx01\GoogleDrive\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.csproj.GenerateResource.Cache
+C:\Users\ptx01\GoogleDrive\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.exe
+C:\Users\ptx01\GoogleDrive\git\kojin\Serial_test\SerialTest\SerialTest\obj\Debug\SerialTest.pdb

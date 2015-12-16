@@ -18,6 +18,7 @@ namespace SerialTest
         ClientTcpIp client;
         public bool serverFlg = false;
         Thread clientThread;
+        Thread myServerThread;
         public tcp()
         {
             ip = "127.0.0.1";
@@ -36,7 +37,7 @@ namespace SerialTest
 
             // クライアント接続待ち開始
             serverFlg = true;
-            Thread myServerThread = new Thread(new ThreadStart(ServerThread));
+            myServerThread = new Thread(new ThreadStart(ServerThread));
             myServerThread.Start();
         }
 
@@ -48,18 +49,24 @@ namespace SerialTest
                 {
                     Console.WriteLine("ServerThread");
                     // ソケット接続待ち
-                    TcpClient myTcpClient = listener.AcceptTcpClient();
-                    // クライアントから接続有り
-                    //if(myTcpClient)
+                    if (listener.Pending())
+                    {
+                        TcpClient myTcpClient = listener.AcceptTcpClient();
+                        // クライアントから接続有り
+                        //if(myTcpClient)
                         // クライアント送受信オブジェクト生成
                         client = new ClientTcpIp();
                         client.objSck = myTcpClient;
                         client.objStm = myTcpClient.GetStream();
-                    // クライアントとの送受信開始
-                    client.readFlg = true;
-                    clientThread = new Thread(
-                            new ThreadStart(client.ReadWrite));
-                        clientThread.Start();
+                        // クライアントとの送受信開始
+                        client.readFlg = true;
+                        if (serverFlg == true)
+                        {
+                            clientThread = new Thread(
+                                    new ThreadStart(client.ReadWrite));
+                            clientThread.Start();
+                        }
+                    }
 
                 }
                 Console.WriteLine("STOP Server");
@@ -77,8 +84,34 @@ namespace SerialTest
         public void stopServer()
         {
             stopServerThread();
+
+            if (myServerThread!= null)
+            {
+                if (myServerThread.IsAlive)
+                {
+                    myServerThread.Abort();
+                    serverFlg = false;
+                    myServerThread.Join();
+                    Console.WriteLine("stop myServerThread");
+                }
+                myServerThread = null;
+            }
+
+            if (clientThread != null)
+            {
+                if (clientThread.IsAlive)
+                {
+
+                    client.stopReadThread();
+                    clientThread.Abort();
+                    clientThread.Join();
+                }
+                clientThread = null;
+            }
+
             if (client != null)
                 client.stopReadThread();
+            client = null;
         }
     }
 
@@ -95,17 +128,19 @@ namespace SerialTest
             {
                 while (readFlg == true)
                 {
-                    Console.WriteLine("ReadWrite");
-                    // ソケット受信
-                    Byte[] rdat = new Byte[1024];
-                    int ldat = objStm.Read(rdat, 0, rdat.GetLength(0));
-                    if (ldat > 0)
+                    if (objSck.Available > 0)
                     {
-                        // クライアントからの受信データ有り
-                        // 送信データ作成
-                        char[] sdat = new char[ldat];
-                        Array.Copy(rdat, sdat, ldat);
-                        
+                        Console.WriteLine("ReadWrite");
+                        // ソケット受信
+                        Byte[] rdat = new Byte[1024];
+                        int ldat = objStm.Read(rdat, 0, rdat.GetLength(0));
+                        if (ldat > 0)
+                        {
+                            // クライアントからの受信データ有り
+                            // 送信データ作成
+                            char[] sdat = new char[ldat];
+                            Array.Copy(rdat, sdat, ldat);
+
                             for (int i = 0; i < sdat.Length; i++)
                             {
                                 if (sdat[i] >= 48 && sdat[i] <= 57)
@@ -131,16 +166,18 @@ namespace SerialTest
                         // ソケット送信
                         objStm.Write(sdat, 0, sdat.GetLength(0));
                         */
-                    
-                    }
-                    else
-                    {
-                        // ソケット切断有り
-                        // ソケットクローズ
-                        objStm.Close();
-                        objSck.Close();
-                        Console.WriteLine("return read");
-                        return;
+
+
+                        }
+                        else
+                        {
+                            // ソケット切断有り
+                            // ソケットクローズ
+                            objStm.Close();
+                            objSck.Close();
+                            Console.WriteLine("return read");
+                            return;
+                        }
                     }
                 }
                 Console.WriteLine("STOP read");
